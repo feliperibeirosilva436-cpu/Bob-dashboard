@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard · Lojas MM2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="gate" class="gate" style="display:none">
+  <div class="gate-card">
+    <h2>Acesso ao painel</h2>
+    <p class="muted">Digite a senha que o dono da loja compartilhou com você.</p>
+    <input id="viewKeyInput" type="password" placeholder="Senha de visualização" />
+    <button id="btnViewLogin" type="button">Entrar</button>
+    <p id="gateMsg" class="muted"></p>
+  </div>
+</div>
+<div class="app" id="appMain">
+  <header class="top">
+    <div class="brand">
+      <img id="botAvatar" class="avatar" alt="" />
+      <div>
+        <h1 id="nomeLoja">Dashboard</h1>
+        <p class="sub">Monitoramento das lojas · PIX</p>
+      </div>
+    </div>
+    <div class="top-right">
+      <div id="statusPill" class="pill offline">—</div>
+      <select id="tenantSel" class="select"><option value="">Todas as lojas</option></select>
+    </div>
+  </header>
+  <section class="cards">
+    <article class="card"><div class="card-head"><span>RECEITA TOTAL</span><span class="ico green">$</span></div><div class="card-val" id="mReceita">R$ 0,00</div></article>
+    <article class="card"><div class="card-head"><span>PEDIDOS APROVADOS</span><span class="ico gold">🛒</span></div><div class="card-val" id="mPedidos">0</div></article>
+    <article class="card"><div class="card-head"><span>PRODUTOS ENTREGUES</span><span class="ico blue">📦</span></div><div class="card-val" id="mProdutos">0</div></article>
+    <article class="card"><div class="card-head"><span>SERVIDORES ATIVOS</span><span class="ico purple">⛓</span></div><div class="card-val" id="mServers">0</div></article>
+  </section>
+  <section class="chart-box">
+    <div class="chart-head">
+      <div><h2>↗ Recebimentos no período</h2><p class="muted">Evolução dos valores recebidos por PIX</p></div>
+      <div class="chips">
+        <span class="chip" id="pReceita">Receita: R$ 0,00</span>
+        <span class="chip" id="pPedidos">Pedidos: 0</span>
+        <span class="chip" id="pProdutos">Produtos: 0</span>
+      </div>
+    </div>
+    <canvas id="chart" height="120"></canvas>
+  </section>
+  <section class="footer-row">
+    <div class="tenants"><h3>Lojas conectadas</h3><div id="tenantList" class="tenant-list"></div></div>
+    <div class="hint-box">
+      <h3>Como funciona</h3>
+      <p class="muted">Este site fica online 24h. Cada bot envia os números sozinho — não precisa do seu PC ligado.</p>
+      <p class="muted"><strong>Online</strong> = bot ativo · <strong>Manutenção</strong> = loja em manutenção · <strong>Offline</strong> = bot parado</p>
+    </div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
